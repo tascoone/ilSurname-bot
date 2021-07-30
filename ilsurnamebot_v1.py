@@ -1,15 +1,15 @@
 import telebot
 import requests
-import json
 import random
 import time
 import requests
-from bs4 import BeautifulSoup
-import json
-API_KEY = "1721759522:AAGtRtHoUrG7vPQXfzZdwBvETmkdP6a65Rg"
+
+
+API_KEY = "<API KEY>"
 bot = telebot.TeleBot(API_KEY)
 comandi = "/help : mostra i comandi"\
     "\n/rickroll : rickrolla chiunque"\
+    "\n/btceuro : mostra il prezzo dei bitcoin"
     "\n/insulta + username : indovina cosa fa 😎😎"
 
 
@@ -21,11 +21,11 @@ def help(message):
 def rickroll(message):
   bot.send_message(message.chat.id,"https://youtu.be/dQw4w9WgXcQ")
 
-""" @bot.message_handler(commands=["btceuro"])
+@bot.message_handler(commands=["btceuro"])
 def btc_to_euro(message):
     r = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
     bitcoin_prices = r.json()
-    bot.reply_to(message, "I bitcoin ora costano: " + bitcoin_prices["bpi"]["EUR"]["rate"] + " , ma tanto sei povero come la merda...") """
+    bot.reply_to(message, "I bitcoin ora costano: " + bitcoin_prices["bpi"]["EUR"]["rate"] + " , ma tanto sei povero come la merda...")
 
 @bot.message_handler(commands=["insulta"])     
 def insulta(message):
